@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Noctive Roleplay — SAMP Indonesia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#030303;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.1);--cream:#efe3cf;--cream2:#c9b99c;--txt:#f1ece3;--mut:#8f8a82;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px));background:var(--bg)}
+body{background:radial-gradient(700px 420px at 50% -5%,rgba(239,227,207,.12),transparent),var(--bg);color:var(--txt);font-family:'Manrope',system-ui,sans-serif;font-weight:500;line-height:1.6;padding-bottom:calc(110px + env(safe-area-inset-bottom,0px));overflow-x:hidden}
+
+body:before{content:"";position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%)}
+#stars{position:fixed;inset:0;z-index:-1;pointer-events:none}
+#stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--cream);animation:tw 4s infinite}
+@keyframes tw{50%{opacity:.1}}
+h1,h2,h3,b{font-weight:800;letter-spacing:-.01em}
+.top{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:calc(10px + env(safe-area-inset-top,0px)) 16px 10px;background:rgba(3,3,3,.45);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border-bottom:1px solid var(--line)}
+.logo{font-weight:800;font-size:1.05rem;color:var(--cream);display:flex;align-items:center;gap:10px}
+.logo svg{width:auto;height:26px}
+.ic{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--txt);cursor:pointer}
+.ic svg,.mi .c svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.menu{position:fixed;top:calc(62px + env(safe-area-inset-top,0px));right:14px;z-index:70;width:min(320px,calc(100vw - 28px));background:rgba(20,20,20,.72);backdrop-filter:blur(26px) saturate(1.4);-webkit-backdrop-filter:blur(26px) saturate(1.4);border:1px solid var(--line);border-radius:22px;padding:8px;opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top right;transition:.25s}
+.menu.o{opacity:1;visibility:visible;transform:none}
+.mi{display:flex;gap:14px;align-items:center;padding:11px 10px;border-radius:16px;cursor:pointer}
+.mi:hover{background:rgba(255,255,255,.06)}
+.mi .c{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);background:rgba(255,255,255,.04);flex:none}
+.mi b{display:block;font-size:.95rem;font-weight:700}.mi small{color:var(--mut);font-size:.78rem}
+.bn{position:fixed;left:0;right:0;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:50;margin:0 auto;width:min(380px,calc(100vw - 28px));display:flex;justify-content:space-between;padding:8px;border-radius:26px;background:rgba(18,18,18,.5);backdrop-filter:blur(22px) saturate(1.5);-webkit-backdrop-filter:blur(22px) saturate(1.5);border:1px solid var(--line);box-shadow:0 14px 40px rgba(0,0,0,.6)}
+.bn a{flex:1;height:48px;display:grid;place-items:center;border-radius:18px;color:var(--mut);transition:.25s;position:relative}
+.bn a svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.bn a.on{color:var(--cream);background:linear-gradient(180deg,rgba(239,227,207,.2),rgba(239,227,207,.06));box-shadow:inset 0 0 0 1px rgba(239,227,207,.3)}
+section{max-width:960px;margin:0 auto;padding:64px 20px 8px}
+.hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:110px}
+.tag{border:1px solid var(--line);background:var(--card);padding:6px 16px;border-radius:99px;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cream2);font-weight:600}
+h1{font-size:clamp(2.8rem,12vw,5.6rem);line-height:1;margin:22px 0 14px;color:var(--cream);text-shadow:0 0 50px rgba(239,227,207,.18)}
+.lg{width:min(340px,82vw);height:auto;margin:6px 0 22px;filter:drop-shadow(0 0 26px rgba(255,255,255,.18))}
+.hero p{max-width:520px;color:var(--mut)}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:99px;font:700 .9rem 'Manrope';text-decoration:none;cursor:pointer;border:1px solid var(--line);color:var(--txt);background:rgba(255,255,255,.05);transition:.25s}
+.btn.p{background:linear-gradient(180deg,#f4ead8,#c9b99c);color:#14110b;border:0}
+.btn:hover{transform:translateY(-2px)}
+.seg{display:flex;margin-top:40px;border:1px solid var(--line);border-radius:22px;background:var(--card);backdrop-filter:blur(10px)}
+.seg div{padding:14px 26px;text-align:center;border-left:1px solid var(--line)}.seg div:first-child{border:0}
+.seg b{display:block;font-size:1.6rem;color:var(--cream);line-height:1.2}.seg span{font-size:.74rem;color:var(--mut)}
+h2{font-size:1.9rem;color:var(--txt);position:relative;padding-bottom:10px;margin-bottom:6px}
+h2:after{content:"";position:absolute;left:0;bottom:0;width:46px;height:2px;background:linear-gradient(90deg,var(--cream),transparent)}
+.sub{color:var(--mut);margin:8px 0 22px;font-size:.92rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;backdrop-filter:blur(10px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.card h3{font-size:1.05rem;color:var(--cream);margin:10px 0 4px}.card p{color:var(--mut);font-size:.88rem}
+.ci{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--cream)}
+.ci svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;font-weight:800;font-size:.75rem;letter-spacing:.12em;border:1px solid rgba(239,227,207,.4);color:var(--cream);background:rgba(239,227,207,.08)}
+.pill.off{color:var(--mut);border-color:var(--line);background:transparent}
+.dot{width:8px;height:8px;border-radius:50%;background:currentColor;animation:pl 1.8s infinite}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(239,227,207,.6)}100%{box-shadow:0 0 0 9px transparent}}
+.bar{height:6px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin:10px 0 4px}.bar div{height:100%;background:linear-gradient(90deg,var(--cream2),var(--cream));border-radius:99px;transition:.6s}
+.row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+code{color:var(--cream);background:rgba(255,255,255,.06);border:1px solid var(--line);padding:6px 12px;border-radius:10px;font-size:.92rem;font-weight:600}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.step{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line)}.step:first-child{border:0;padding-top:0}
+.step i{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(239,227,207,.4);color:var(--cream);font-style:normal;font-weight:800;font-size:.9rem}
+.step span{color:var(--mut);font-size:.88rem;display:block}
+.rule{display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--line)}.rule:first-child{border:0;padding-top:0}
+.rule b{min-width:116px;color:var(--cream);font-size:.92rem}.rule span{color:var(--mut);font-size:.88rem}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.chip{padding:7px 16px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--mut);font:600 .82rem 'Manrope';cursor:pointer}
+.chip.on{background:rgba(255,255,255,.1);color:var(--txt)}
+input,textarea,select{width:100%;background:rgba(0,0,0,.4);border:1px solid var(--line);border-radius:16px;padding:13px 16px;color:var(--txt);font:500 .92rem 'Manrope';margin:6px 0;outline:none}
+input:focus,textarea:focus,select:focus{border-color:rgba(239,227,207,.5)}
+select option{background:#111}
+.stars{display:flex;gap:8px;margin:12px 0}
+.stars svg{width:34px;height:34px;stroke:var(--cream2);fill:none;stroke-width:1.5;cursor:pointer;transition:.2s}
+.stars svg.on{fill:var(--cream);stroke:var(--cream);filter:drop-shadow(0 0 8px rgba(239,227,207,.4))}
+.avg{font-size:3.2rem;font-weight:800;color:var(--cream);line-height:1}
+.rv{border-top:1px solid var(--line);padding:12px 0;font-size:.9rem}.rv b{color:var(--cream)}.rv em{color:var(--cream2);font-style:normal}
+details{border-top:1px solid var(--line);padding:14px 0;cursor:pointer}details:first-child{border:0;padding-top:0}
+summary{font-weight:700;color:var(--cream)}details p{color:var(--mut);font-size:.88rem;margin-top:6px}
+.ann{border-top:1px solid var(--line);padding:10px 0}.ann:first-child{border:0}.ann small{color:var(--cream2);letter-spacing:.14em;font-weight:700}.ann p{font-size:.88rem;color:var(--mut)}
+.shop{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.item{display:block;text-decoration:none;color:var(--txt);background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;position:relative;transition:.25s}
+.item:hover{transform:translateY(-3px);border-color:rgba(239,227,207,.4)}
+.item .im{height:112px;display:grid;place-items:center;color:var(--cream);background:radial-gradient(circle at 50% 40%,rgba(239,227,207,.16),transparent 70%),linear-gradient(180deg,rgba(255,255,255,.03),rgba(0,0,0,.3));border-bottom:1px solid var(--line)}
+.item .im svg{width:84%;height:84px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 10px rgba(239,227,207,.25))}
+.item .bd{padding:12px 14px 14px}.item b{display:block;font-size:.88rem;line-height:1.3;font-weight:700}
+.item .pr{color:var(--cream);font-weight:800;font-size:1rem;margin:6px 0 10px}
+.item .go{font-size:.74rem;color:var(--mut);display:flex;align-items:center;gap:6px;font-weight:600}
+.slot{display:flex;justify-content:space-between;font-size:.72rem;color:var(--mut);font-weight:700;margin-bottom:4px}.sbar{height:4px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin-bottom:10px}.sbar div{height:100%;background:var(--cream);border-radius:99px}
+.promo{position:absolute;top:10px;left:10px;z-index:2;font-size:.64rem;font-weight:800;letter-spacing:.12em;padding:4px 10px;border-radius:99px;background:linear-gradient(180deg,#f4ead8,#c9b99c);color:#14110b}
+.page{position:fixed;inset:0;z-index:80;background:var(--bg);overflow-y:auto;padding:calc(16px + env(safe-area-inset-top,0px)) 18px 40px;transform:translateY(100%);visibility:hidden;transition:.35s}
+.page.o{transform:none;visibility:visible}
+.page .in{max-width:520px;margin:0 auto}
+.back{display:inline-flex;gap:6px;align-items:center;padding:9px 16px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--txt);font:700 .85rem 'Manrope';cursor:pointer}
+.av{width:84px;height:84px;border-radius:50%;margin:22px auto 12px;display:grid;place-items:center;border:1px solid rgba(239,227,207,.45);background:rgba(239,227,207,.06);color:var(--cream);font-weight:800;font-size:1.6rem}
+.page h2{text-align:center;font-size:2rem;padding:0}.page h2:after{display:none}
+.role{margin:22px 0 8px;font-size:.72rem;letter-spacing:.2em;color:var(--cream2);font-weight:800}
+.ct{display:flex;gap:12px;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px 16px;margin-bottom:10px}
+.ct b{display:block;font-size:1rem}.ct span{color:var(--mut);font-size:.84rem}
+.ct .btns{margin:0;flex-wrap:nowrap}.ct .btn{padding:8px 16px;font-size:.8rem}
+
+footer{text-align:center;color:var(--mut);font-size:.8rem;padding:50px 20px 10px}
+#toast{position:fixed;left:50%;bottom:calc(100px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);opacity:0;background:rgba(24,24,24,.8);backdrop-filter:blur(14px);border:1px solid var(--line);padding:10px 22px;border-radius:99px;transition:.3s;z-index:99;font-size:.85rem;font-weight:600;pointer-events:none}
+#toast.s{opacity:1;transform:translate(-50%,0)}
+.mask{position:fixed;inset:0;z-index:65;background:rgba(0,0,0,.4);opacity:0;visibility:hidden;transition:.25s}.mask.o{opacity:1;visibility:visible}
+
+</style>
+</head>
+<body>
+<div id="stars"></div>
+<header class="top">
+  <div class="logo"><svg viewBox="0 0 285 204" fill="#fff" aria-hidden="true"><path fill-rule="evenodd" d="M43.6 202.0 L87.0 28.0 L119.5 2.0 L145.5 2.0 L204.0 112.0 L231.5 2.0 L283.5 2.0 L240.1 176.0 L207.6 202.0 L181.6 202.0 L123.0 92.0 L95.6 202.0 Z M143.5 58.0 L185.1 140.0 L182.1 152.0 L140.5 70.0 Z"/><path fill-rule="evenodd" d="M5.5 42.0 L61.5 42.0 L58.0 56.0 L2.0 56.0 Z"/><path fill-rule="evenodd" d="M18.5 78.0 L52.5 78.0 L49.0 92.0 L15.0 92.0 Z"/><path fill-rule="evenodd" d="M31.5 114.0 L43.5 114.0 L40.0 128.0 L28.0 128.0 Z"/></svg>Noctive Roleplay</div>
+  <div class="ic" id="mb" aria-label="Menu"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="12" cy="19" r="1.2"/></svg></div>
+</header>
+<div class="mask" id="mask"></div>
+<div class="menu" id="menu">
+  <div class="mi" onclick="openContact()"><div class="c"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.6 1.8-2 3-2s2.4.4 3 2M15 10h3M15 13h3"/></svg></div><div><b>Contact Admin</b><small>Developer, Founder, Admin</small></div></div>
+  <div class="mi" onclick="go('rating')"><div class="c"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div><div><b>Rating Server</b><small>Beri nilai untuk server</small></div></div>
+  <div class="mi" onclick="go('ask')"><div class="c"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div><div><b>Ask Owner</b><small>Tanya langsung ke owner</small></div></div>
+  <div class="mi" onclick="share()"><div class="c"><svg viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4M5 14v5h14v-5"/></svg></div><div><b>Bagikan halaman</b><small>Kirim ke teman</small></div></div>
+  <div class="mi" onclick="copyText(IP,'IP disalin');cm()"><div class="c"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg></div><div><b>Salin IP</b><small>103.253.244.213:7004</small></div></div>
+  <div class="mi" onclick="recap()"><div class="c"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div><div><b>Salin rekap rating</b><small>Ringkasan nilai server</small></div></div>
+  <div class="mi" onclick="resetData()"><div class="c"><svg viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></div><div><b>Reset data</b><small>Hapus rating tersimpan</small></div></div>
+</div>
+
+<section id="beranda" class="hero">
+  <svg class="lg" viewBox="0 0 430 348" fill="#fff" role="img" aria-label="Noctive logo"><path fill-rule="evenodd" d="M133.9 206.0 L177.3 32.0 L209.8 6.0 L235.8 6.0 L294.3 116.0 L321.8 6.0 L373.8 6.0 L330.4 180.0 L297.9 206.0 L271.9 206.0 L213.3 96.0 L185.9 206.0 Z M233.8 62.0 L275.4 144.0 L272.4 156.0 L230.8 74.0 Z"/><path fill-rule="evenodd" d="M95.8 46.0 L151.8 46.0 L148.3 60.0 L92.3 60.0 Z"/><path fill-rule="evenodd" d="M108.8 82.0 L142.8 82.0 L139.3 96.0 L105.3 96.0 Z"/><path fill-rule="evenodd" d="M121.8 118.0 L133.8 118.0 L130.4 132.0 L118.4 132.0 Z"/><path fill-rule="evenodd" d="M6.0 341.6 L6.0 268.0 L21.6 268.0 L45.6 314.0 L45.6 268.0 L61.2 268.0 L61.2 341.6 L45.6 341.6 L21.6 295.6 L21.6 341.6 Z"/><path fill-rule="evenodd" d="M86.0 268.0 L115.5 268.0 L128.4 280.9 L128.4 328.7 L115.5 341.6 L86.0 341.6 L73.2 328.7 L73.2 280.9 Z M94.3 282.7 L107.2 282.7 L112.7 288.2 L112.7 321.4 L107.2 326.9 L94.3 326.9 L88.8 321.4 L88.8 288.2 Z"/><path fill-rule="evenodd" d="M153.2 268.0 L195.5 268.0 L195.5 282.7 L162.4 282.7 L156.0 289.2 L156.0 320.4 L162.4 326.9 L195.5 326.9 L195.5 341.6 L153.2 341.6 L140.3 328.7 L140.3 280.9 Z"/><path fill-rule="evenodd" d="M207.5 268.0 L262.7 268.0 L262.7 282.7 L242.4 282.7 L242.4 341.6 L227.7 341.6 L227.7 282.7 L207.5 282.7 Z"/><path fill-rule="evenodd" d="M274.6 268.0 L289.4 268.0 L289.4 341.6 L274.6 341.6 Z"/><path fill-rule="evenodd" d="M301.3 268.0 L317.9 268.0 L328.9 317.7 L340.0 268.0 L356.5 268.0 L336.3 341.6 L321.6 341.6 Z"/><path fill-rule="evenodd" d="M368.5 268.0 L423.7 268.0 L423.7 282.7 L384.1 282.7 L384.1 297.4 L416.3 297.4 L416.3 312.2 L384.1 312.2 L384.1 326.9 L423.7 326.9 L423.7 341.6 L368.5 341.6 Z"/></svg>
+  <span class="tag">SAMP • Indonesia Roleplay</span>
+  <p>Server roleplay eksklusif dengan suasana malam yang elegan. Bangun ceritamu dan jadi bagian dari komunitas berkelas.</p>
+  <div class="btns">
+    <a class="btn p" href="https://chat.whatsapp.com/KgCXc0EVkLALQY9Owkk4M6" target="_blank" rel="noopener">Join Grup WhatsApp</a>
+    <a class="btn" href="samp://103.253.244.213:7004">Main Sekarang</a>
+  </div>
+  <div class="seg">
+    <div><b id="stTop">Online</b><span>Status</span></div>
+    <div><b id="plTop">0</b><span>Pemain</span></div>
+    <div><b id="avgTop">–</b><span>Rating</span></div>
+  </div>
+</section>
+
+<section id="status">
+  <h2>Status Server</h2><p class="sub">Info server Noctive Roleplay.</p>
+  <div class="two">
+    <div class="card">
+      <div class="row"><b>Server</b><span id="stPill" class="pill"><i class="dot"></i>ONLINE</span></div>
+      <div class="row" style="margin-top:16px"><code>103.253.244.213:7004</code><button class="btn" style="padding:8px 18px" onclick="copyText(IP,'IP disalin')">Salin IP</button></div>
+      <div class="row" style="margin-top:18px"><span style="color:var(--mut);font-size:.88rem">Pemain</span><b id="plTxt">0 / 100</b></div>
+      <div class="bar"><div id="plBar" style="width:0"></div></div>
+      <div class="btns" style="justify-content:flex-start"><a class="btn p" href="samp://103.253.244.213:7004">Connect Langsung</a></div>
+      <p style="font-size:.74rem;color:var(--mut);margin-top:10px">Membuka SA-MP otomatis di PC yang sudah terpasang.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Pengumuman</h3><div id="anns"></div>
+      <h3 style="border-top:1px solid var(--line);padding-top:16px;margin-top:14px">Event Berikutnya</h3>
+      <p id="evName">Segera diumumkan di grup WhatsApp.</p>
+      <div id="evCd" class="avg" style="font-size:1.7rem;margin-top:6px"></div>
+    </div>
+  </div>
+</section>
+
+<section id="fitur">
+  <h2>Kenapa Noctive</h2><p class="sub">Pengalaman roleplay premium untuk semua kalangan.</p>
+  <div class="grid">
+    <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M4 5h16v9a8 8 0 0 1-16 0zM9 10h.01M15 10h.01M9 16c1.5 1 4.5 1 6 0"/></svg></div><h3>Roleplay Serius</h3><p>Aturan jelas, cerita berkualitas, pemain saling menghargai.</p></div>
+    <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div><h3>Staff Aktif</h3><p>Admin responsif membantu pemain baru dan menjaga fair play.</p></div>
+    <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></div><h3>Banyak Pekerjaan</h3><p>Faction, bisnis, dan job untuk berkembang.</p></div>
+    <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 13h18M12 8c-2-4-6-3-5 0M12 8c2-4 6-3 5 0"/></svg></div><h3>Event Rutin</h3><p>Giveaway dan event komunitas untuk member aktif.</p></div>
+    <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg></div><h3>Ramah Pemula</h3><p>Tutorial dan mentor untuk yang baru roleplay.</p></div>
+    <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></div><h3>Komunitas Elite</h3><p>Grup WhatsApp aktif untuk info dan obrolan seru.</p></div>
+  </div>
+</section>
+
+<section id="aturan">
+  <h2>Aturan Singkat</h2><p class="sub">Pahami istilah dasar roleplay agar semua nyaman.</p>
+  <input id="sr" placeholder="Cari aturan atau FAQ..." oninput="srch(this.value)">
+  <div class="card" id="rules" style="margin-top:8px">
+    <div class="rule"><b>RDM</b><span>Random Deathmatch: membunuh pemain tanpa alasan roleplay.</span></div>
+    <div class="rule"><b>VDM</b><span>Vehicle Deathmatch: menabrak pemain dengan kendaraan tanpa alasan.</span></div>
+    <div class="rule"><b>Metagaming</b><span>Memakai informasi luar karakter (chat, Discord, WhatsApp) di dalam game.</span></div>
+    <div class="rule"><b>Powergaming</b><span>Memaksakan aksi tanpa memberi pemain lain kesempatan merespons.</span></div>
+    <div class="rule"><b>Nama Karakter</b><span>Wajib format Nama_Belakang dan terdengar realistis.</span></div>
+    <div class="rule"><b>Respect</b><span>Hormati pemain dan staff. Toxic berlebihan bisa kena sanksi.</span></div>
+  </div>
+  <p style="color:var(--mut);font-size:.78rem;margin-top:10px">Aturan lengkap dan terbaru ada di grup WhatsApp resmi.</p>
+</section>
+
+<section id="toko">
+  <h2>Toko Noctive</h2><p class="sub">Pilih kategori dan produk, lalu pesan langsung ke admin lewat WhatsApp.</p>
+  <div class="chips" id="shopTabs"></div>
+  <div class="shop" id="shop"></div>
+  <p style="color:var(--mut);font-size:.78rem;margin-top:10px">Tap kartu untuk membuka chat WhatsApp admin dengan pesan pesanan otomatis.</p>
+</section>
+
+<section id="join">
+  <h2>Cara Bergabung</h2><p class="sub">Empat langkah menjadi warga Noctive.</p>
+  <div class="card">
+    <div class="step"><i>1</i><div><b>Join grup WhatsApp</b><span>Dapatkan info, update, dan panduan terbaru.</span></div></div>
+    <div class="step"><i>2</i><div><b>Install GTA SA + SA-MP</b><span>Pastikan SA-MP 0.3.7 terpasang di PC.</span></div></div>
+    <div class="step"><i>3</i><div><b>Connect ke server</b><span>Tambahkan IP 103.253.244.213:7004 atau tekan Connect Langsung.</span></div></div>
+    <div class="step"><i>4</i><div><b>Buat karakter</b><span>Gunakan nama Nama_Belakang dan mulai ceritamu.</span></div></div>
+  </div>
+  <div class="card row" style="margin-top:12px">
+    <div><b>Ajak teman bergabung</b><span style="display:block;color:var(--mut);font-size:.85rem">Bagikan IP dan link grup sekaligus.</span></div>
+    <div class="btns" style="margin:0"><button class="btn" onclick="copyText(WA,'Link grup disalin')">Salin Link</button><button class="btn p" onclick="share()">Ajak Teman</button></div>
+  </div>
+</section>
+
+<section id="rating">
+  <h2>Rating Server</h2><p class="sub">Bagikan pengalamanmu bermain di Noctive Roleplay.</p>
+  <div class="two">
+    <div class="card">
+      <div class="avg" id="avg">–</div>
+      <div id="avgStars" style="color:var(--cream);letter-spacing:3px;margin:4px 0"></div>
+      <div style="color:var(--mut);font-size:.82rem" id="cnt">Belum ada ulasan</div>
+      <div id="list" style="margin-top:12px;max-height:280px;overflow-y:auto"></div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Tulis Ulasan</h3>
+      <div class="stars" id="stars"></div>
+      <input id="rn" placeholder="Nama / nama karakter" maxlength="30">
+      <textarea id="rt" rows="3" placeholder="Tulis kesanmu (opsional)" maxlength="200"></textarea>
+      <button class="btn p" style="width:100%;margin-top:8px" onclick="addRev()">Kirim rating</button>
+      <p style="font-size:.74rem;color:var(--mut);margin-top:8px">Ulasan tersimpan di browser perangkatmu.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ask">
+  <h2>Ask Owner</h2><p class="sub">Pertanyaan, saran, atau kerja sama? Tulis di sini.</p>
+  <div class="card">
+    <div class="chips" id="cats"></div>
+    <input id="an" placeholder="Nama kamu" maxlength="30">
+    <textarea id="aq" rows="4" placeholder="Tulis pesan untuk owner..." maxlength="500"></textarea>
+    <div class="btns" style="justify-content:flex-start;margin-top:8px"><button class="btn p" onclick="askOwner()">Kirim via WhatsApp</button><button class="btn" onclick="copyAsk()">Salin Pesan</button></div>
+    <p style="font-size:.74rem;color:var(--mut);margin-top:10px">Pesan disalin otomatis lalu grup WhatsApp terbuka, tinggal tempel dan kirim.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <h2>FAQ</h2><p class="sub">Jawaban cepat untuk calon member.</p>
+  <div class="card" id="faqs">
+    <details><summary>Apakah gratis?</summary><p>Ya, bergabung dan bermain di Noctive Roleplay gratis.</p></details>
+    <details><summary>Saya belum pernah roleplay, boleh?</summary><p>Boleh. Staff dan member senior siap membantu pemula.</p></details>
+    <details><summary>Apa IP servernya?</summary><p>103.253.244.213:7004. Tambahkan lewat Favorites di SA-MP.</p></details>
+    <details><summary>Bagaimana melapor pemain bermasalah?</summary><p>Gunakan form Ask Owner kategori Laporan Pemain atau hubungi staff di grup.</p></details>
+    <details><summary>Bisa main lewat HP?</summary><p>Tanyakan di grup WhatsApp untuk panduan client yang didukung server.</p></details>
+  </div>
+</section>
+<div class="page" id="cpage"><div class="in">
+  <button class="back" onclick="closeContact()">&#8249; Kembali</button>
+  <div class="av">NR</div><h2>Contact Admin</h2>
+  <p class="sub" style="text-align:center">Hubungi tim Noctive Roleplay lewat WhatsApp.</p>
+  <div id="clist"></div>
+</div></div>
+<footer>© 2026 Noctive Roleplay • Komunitas SAMP Indonesia</footer>
+
+<nav class="bn" id="bn">
+  <a href="#beranda" aria-label="Beranda"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg></a>
+  <a href="#status" aria-label="Status"><svg viewBox="0 0 24 24"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg></a>
+  <a href="#aturan" aria-label="Aturan"><svg viewBox="0 0 24 24"><path d="M5 4a2 2 0 0 1 2-2h12v18H7a2 2 0 0 0-2 2zM5 4v18M9 7h6"/></svg></a>
+  <a href="#toko" aria-label="Toko"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2"/></svg></a>
+  <a href="#join" aria-label="Join"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></a>
+  <a href="#rating" aria-label="Rating"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></a>
+  <a href="#ask" aria-label="Ask Owner"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></a>
+</nav>
+<div id="toast"></div>
+
+<script>
+/* ===== PENGATURAN: ubah di sini untuk memperbarui info server ===== */
+var CFG={online:true,players:0,maxPlayers:100,eventName:'',eventDate:'',
+ announcements:[{d:'INFO',t:'Selamat datang di Noctive Roleplay! Join grup WhatsApp untuk update terbaru.'},{d:'TIPS',t:'Baca aturan singkat sebelum mulai bermain agar roleplay nyaman.'}]};
+/* ================================================================= */
+var WA='https://chat.whatsapp.com/KgCXc0EVkLALQY9Owkk4M6',IP='103.253.244.213:7004',sel=0,cat='Pertanyaan Umum',revs=[];
+function $(i){return document.getElementById(i)}
+function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+function toast(m){var t=$('toast');t.textContent=m;t.className='s';setTimeout(function(){t.className=''},2200)}
+function load(){try{revs=JSON.parse(localStorage.getItem('nct_rv')||'[]')}catch(e){revs=[]}}
+function save(){try{localStorage.setItem('nct_rv',JSON.stringify(revs))}catch(e){}}
+var SV='<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>';
+function drawStars(){var h='';for(var i=1;i<=5;i++)h+='<svg viewBox="0 0 24 24" class="'+(i<=sel?'on':'')+'" onclick="sel='+i+';drawStars()">'+SV+'</svg>';$('stars').innerHTML=h}
+function render(){
+ var n=revs.length,a=n?revs.reduce(function(s,r){return s+r.s},0)/n:0;
+ $('avg').textContent=n?a.toFixed(1):'–';$('avgTop').textContent=n?a.toFixed(1):'–';
+ $('cnt').textContent=n?n+' ulasan':'Belum ada ulasan';
+ $('avgStars').textContent=n?'★'.repeat(Math.round(a))+'☆'.repeat(5-Math.round(a)):'';
+ $('list').innerHTML=revs.slice().reverse().map(function(r){return '<div class="rv"><b>'+esc(r.n)+'</b> <em>'+'★'.repeat(r.s)+'</em><br><span style="color:var(--mut)">'+esc(r.t)+'</span></div>'}).join('');
+}
+function addRev(){
+ var n=$('rn').value.trim(),t=$('rt').value.trim();
+ if(!sel)return toast('Pilih bintang dulu');if(!n)return toast('Isi namamu dulu');
+ revs.push({n:n,s:sel,t:t||'Tanpa komentar'});save();render();$('rn').value='';$('rt').value='';sel=0;drawStars();toast('Terima kasih atas ratingmu');
+}
+function recap(){cm();if(!revs.length)return toast('Belum ada rating');var a=revs.reduce(function(s,r){return s+r.s},0)/revs.length;copyText('Rating Noctive Roleplay: '+a.toFixed(1)+'/5 dari '+revs.length+' ulasan','Rekap disalin')}
+function resetData(){cm();revs=[];save();render();toast('Data direset')}
+function msg(){var q=$('aq').value.trim(),n=$('an').value.trim()||'Anonim';if(!q){toast('Tulis pesanmu dulu');return null}return '[Ask Owner - '+cat+']\nDari: '+n+'\n'+q}
+function copyText(t,m){try{navigator.clipboard.writeText(t).then(function(){toast(m)},function(){toast('Gagal menyalin')})}catch(e){toast('Gagal menyalin')}}
+function copyAsk(){var m=msg();if(m)copyText(m,'Pesan disalin')}
+function askOwner(){var m=msg();if(!m)return;copyText(m,'Pesan disalin, tempel di WhatsApp');setTimeout(function(){window.open(WA,'_blank')},900)}
+function share(){cm();var t='Yuk gabung Noctive Roleplay, server SAMP Indonesia!\nIP: '+IP+'\nGrup: '+WA;if(navigator.share){navigator.share({title:'Noctive Roleplay',text:t}).catch(function(){})}else copyText(t,'Ajakan disalin')}
+function cm(){$('menu').className='menu';$('mask').className='mask'}
+function go(id){cm();$(id).scrollIntoView({behavior:'smooth'})}
+$('mb').onclick=function(){var o=$('menu').className.indexOf('o')>-1;$('menu').className=o?'menu':'menu o';$('mask').className=o?'mask':'mask o'};
+$('mask').onclick=cm;
+function srch(q){q=q.toLowerCase();document.querySelectorAll('#rules .rule,#faqs details').forEach(function(e){e.style.display=e.textContent.toLowerCase().indexOf(q)>-1?'':'none'})}
+['Pertanyaan Umum','Saran & Masukan','Laporan Pemain','Kerja Sama'].forEach(function(c,i){var b=document.createElement('button');b.className='chip'+(i?'':' on');b.textContent=c;b.onclick=function(){cat=c;document.querySelectorAll('#cats .chip').forEach(function(x){x.className='chip'});b.className='chip on'};$('cats').appendChild(b)});
+function status(){
+ var on=CFG.online,p=on?CFG.players:0;
+ $('stPill').className='pill'+(on?'':' off');$('stPill').innerHTML='<i class="dot"></i>'+(on?'ONLINE':'OFFLINE');
+ $('stTop').textContent=on?'Online':'Offline';$('plTop').textContent=p;$('plTxt').textContent=p+' / '+CFG.maxPlayers;
+ $('plBar').style.width=Math.min(100,p/CFG.maxPlayers*100)+'%';
+ $('anns').innerHTML=CFG.announcements.map(function(a){return '<div class="ann"><small>'+esc(a.d)+'</small><p>'+esc(a.t)+'</p></div>'}).join('');
+ if(CFG.eventName)$('evName').textContent=CFG.eventName;
+}
+function tick(){if(!CFG.eventDate)return;var d=new Date(CFG.eventDate)-new Date();if(isNaN(d)||d<=0){$('evCd').textContent='';return}
+ var D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4),S=Math.floor(d%6e4/1e3);$('evCd').textContent=D+'h '+H+'j '+M+'m '+S+'d'}
+function spy(){var cur='beranda';['beranda','status','aturan','toko','join','rating','ask'].forEach(function(i){if($(i).getBoundingClientRect().top<innerHeight*.4)cur=i});
+ document.querySelectorAll('#bn a').forEach(function(a){a.className=a.getAttribute('href')=='#'+cur?'on':''})}
+addEventListener('scroll',spy,{passive:true});
+(function(){var s=$('stars'),h='';for(var i=0;i<45;i++)h+='<i style="left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;animation-delay:'+Math.random()*4+'s;opacity:'+(.2+Math.random()*.5)+'"></i>';s.innerHTML=h})();
+var SH='6287834270844';
+var CAR='<path d="M10 52V44c0-4 3-6 6-7l14-3 12-12h30l14 12 14 3c3 1 4 3 4 7v8z"/><path d="M40 34l8-12h22l12 12zM60 22v12"/><circle cx="32" cy="54" r="8"/><circle cx="88" cy="54" r="8"/>';
+var IMG={
+ sultan:CAR,
+ premier:'<path d="M10 52V38c0-3 2-5 5-5h12l8-14h50l10 14h6c3 0 4 2 4 5v14z"/><path d="M40 33l5-10h18v10zM70 33V23h12l6 10z"/><circle cx="32" cy="54" r="8"/><circle cx="88" cy="54" r="8"/><path d="M96 42h8"/>',
+ moto:'<circle cx="28" cy="56" r="13"/><circle cx="92" cy="56" r="13"/><path d="M28 56l18-22h22l12 22M46 34l-6-8h-10M68 34l8-10h10M44 30h22"/>',
+ deagle:'<path d="M14 22h78v14H14zM92 26h12M30 36h24l-6 26H24z"/><path d="M56 36v8h12M22 22v-4h10v4"/>',
+ shell:'<path d="M24 18h26v34H24zM24 52h26v12H24zM64 18h26v34H64zM64 52h26v12H64z"/><path d="M24 30h26M64 30h26"/>',
+ med:'<path d="M60 10l36 14v34L60 72 24 58V24z"/><path d="M24 24l36 14 36-14M60 38v34M42 31l36 14"/>',
+ high:'<path d="M60 14l36 14v34L60 76 24 62V28z"/><path d="M24 28l36 14 36-14M60 42v34"/><path d="M60 2v8M50 6l5 4M70 6l-5 4M104 12v8M100 16h8"/>',
+ dealer:'<path d="M10 36l50-22 50 22M18 36v34h84V36M14 70h92"/><path d="M40 70V50h16v20M66 50h26v14H66M66 57h26"/>'
+};
+var ITEMS=[
+ {n:'Mobile Sultan',p:5000,i:'sultan'},{n:'Mobile Premier',p:5000,i:'premier'},
+ {n:'Motorcycle',p:3000,i:'moto',promo:1},{n:'Desert Eagle 50 Ammo',p:7000,i:'deagle'},
+ {n:'Shotgun Ammo 50',p:10000,i:'shell'},{n:'Paket Medium',p:15000,i:'med'},
+ {n:'Paket High',p:20000,i:'high'},{n:'DealerShip',p:15000,i:'dealer'}];
+function rp(n){return 'Rp'+n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
+var MODS=[
+ {n:'Modpack Basic',p:5000,i:'mb',promo:1,s:0,m:20},{n:'Modpack Low',p:5000,i:'ml',promo:1,s:0,m:20},
+ {n:'Modpack Medium',p:10000,i:'mm',s:0,m:10},{n:'Modpack High Style',p:15000,i:'mh',s:0,m:15}];
+IMG.mb='<path d="M14 24h30l8 8h54v38H14z"/><path d="M26 46h30M26 56h50"/>';
+IMG.ml='<path d="M26 8h44l24 24v40H26z"/><path d="M70 8v24h24M60 40v22M48 52l12 12 12-12"/>';
+IMG.mm='<path d="M60 10l46 20-46 20-46-20z"/><path d="M14 44l46 20 46-20M14 58l46 20 46-20"/>';
+IMG.mh='<path d="M60 14l46 20-46 20-46-20z"/><path d="M14 48l46 20 46-20M14 62l46 20 46-20"/><path d="M104 4v12M98 10h12M16 4v8M12 8h8"/>';
+var RACIK=[
+ {n:'Modpack Style Compe 🔫',p:5000,i:'compe',promo:1,s:0,m:10},
+ {n:'Modpack Style Winter ☃️',p:5000,i:'winter',promo:1,s:0,m:15},
+ {n:'Modpack Style Roleplay 🤍',p:10000,i:'heart',promo:1,s:0,m:15},
+ {n:'Modpack Style Gengster 🎱',p:10000,i:'ball',promo:1,s:0,m:20},
+ {n:'Modpack CV Idol 👾',p:10000,i:'idol',promo:1,s:0,m:10}];
+var MODF=[
+ {n:'Monetloader Spawn Gun',p:0,i:'spawn',s:0,m:50},
+ {n:'Monetloader Hit Sound',p:0,i:'sound',s:0,m:50},
+ {n:'Monetloader SSAO',p:0,i:'ssao',s:0,m:50},
+ {n:'Cleo Sotot',p:0,i:'cleo',s:0,m:50},
+ {n:'Weapon Desert Revolver',p:0,i:'rev',s:0,m:10},
+ {n:'Weapon Desert Premium',p:3000,i:'revp',s:0,m:10},
+ {n:'Weapon Pack Menarik',p:5000,i:'crate',s:0,m:10},
+ {n:'Skin Pack Gengster',p:1000,i:'skin',s:0,m:50},
+ {n:'Skin For Roleplay',p:2000,i:'skin2',s:0,m:50},
+ {n:'Req Skin Sirkel',p:10000,i:'sirkel',s:0,m:50}];
+var P='<circle cx="60" cy="26" r="12"/><path d="M36 70c0-14 10-22 24-22s24 8 24 22z"/>';
+Object.assign(IMG,{
+ compe:'<circle cx="60" cy="40" r="26"/><circle cx="60" cy="40" r="4"/><path d="M60 8v16M60 56v16M28 40h16M76 40h16"/>',
+ winter:'<path d="M60 8v64M32 24l56 32M88 24L32 56"/><path d="M52 12l8 8 8-8M52 68l8-8 8 8"/>',
+ heart:'<path d="M60 68C24 46 28 18 46 18c8 0 14 5 14 12 0-7 6-12 14-12 18 0 22 28-14 50z"/>',
+ ball:'<circle cx="60" cy="40" r="30"/><circle cx="60" cy="34" r="11"/><path d="M55 34l4-4v10"/>',
+ idol:'<rect x="22" y="22" width="76" height="40" rx="12"/><path d="M40 36v12M34 42h12M78 38h.01M88 46h.01"/><path d="M36 62l-6 10M84 62l6 10"/>',
+ spawn:'<path d="M14 22h66v14H14zM28 36h22l-6 22H24z"/><path d="M96 24v24M84 36h24"/>',
+ sound:'<path d="M18 30h18l22-16v52L36 50H18z"/><path d="M72 28c8 8 8 16 0 24M84 18c14 14 14 30 0 44"/>',
+ ssao:'<circle cx="60" cy="40" r="12"/><path d="M60 8v10M60 62v10M20 40h10M90 40h10M32 12l7 7M81 61l7 7M88 12l-7 7M39 61l-7 7"/>',
+ cleo:'<path d="M42 20L16 40l26 20M78 20l26 20-26 20M68 14L52 66"/>',
+ rev:'<path d="M14 26h56v12H14zM70 22h22v18H70zM28 38l-6 24h16l4-24"/><circle cx="82" cy="31" r="4"/>',
+ revp:'<path d="M12 28h56v12H12zM68 24h22v18H68zM26 40l-6 24h16l4-24"/><path d="M104 10l3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/>',
+ crate:'<path d="M60 10l36 14v34L60 72 24 58V24z"/><path d="M24 24l36 14 36-14M60 38v34"/><path d="M40 30l-6-4"/>',
+ skin:P+'<path d="M44 14h32M48 14l4-8h16l4 8"/>',
+ skin2:P,
+ sirkel:'<circle cx="60" cy="40" r="32"/><circle cx="60" cy="32" r="9"/><path d="M42 62c2-10 8-14 18-14s16 4 18 14"/>'
+});
+var SCAT='ic';
+function drawShop(){
+ var L={ic:ITEMS,mod:MODS,racik:RACIK,mods:MODF}[SCAT];
+ $('shop').innerHTML=L.map(function(x){
+  var t=encodeURIComponent('Halo admin Jefri, saya mau beli '+x.n+' ('+(x.p?rp(x.p):'Free')+').'),sl='';
+  if(x.m){var full=x.s>=x.m;sl='<div class="slot"><span>Slot</span><span>'+(full?'PENUH':x.s+'/'+x.m)+'</span></div><div class="sbar"><div style="width:'+Math.min(100,x.s/x.m*100)+'%"></div></div>'}
+  return '<a class="item" target="_blank" rel="noopener" href="https://wa.me/'+SH+'?text='+t+'">'+(x.promo?'<span class="promo">PROMO</span>':'')+'<div class="im"><svg viewBox="0 0 120 80">'+IMG[x.i]+'</svg></div><div class="bd"><b>'+x.n+'</b><div class="pr">'+rp(x.p)+'</div>'+sl+'<div class="go">Pesan via WhatsApp &#8250;</div></div></a>'}).join('');
+}
+[['ic','Barang IC'],['mod','Modpack (Jefri)'],['racik','Racik Modpack (Jefri)'],['mods','Mods For Jefri']].forEach(function(c,i){var b=document.createElement('button');b.className='chip'+(i?'':' on');b.textContent=c[1];b.onclick=function(){SCAT=c[0];document.querySelectorAll('#shopTabs .chip').forEach(function(x){x.className='chip'});b.className='chip on';drawShop()};$('shopTabs').appendChild(b)});
+drawShop();
+var CT=[
+ {r:'DEVELOPER',l:[{n:'Panjul',w:'6283870948217',d:'+62 838-7094-8217'}]},
+ {r:'FOUNDER',l:[{n:'Alex',w:'6283167837543',d:'+62 831-6783-7543'}]},
+ {r:'ADMIN',l:[{n:'Jefri',w:'6287834270844',d:'+62 878-3427-0844'},{n:'Admin',w:'62895329082697',d:'+62 895-3290-82697'}]}];
+$('clist').innerHTML=CT.map(function(g){return '<div class="role">'+g.r+'</div>'+g.l.map(function(c){
+ return '<div class="ct"><div><b>'+c.n+'</b><span>'+c.d+'</span></div><div class="btns"><a class="btn p" target="_blank" rel="noopener" href="https://wa.me/'+c.w+'">Chat</a><button class="btn" onclick="copyText(\''+c.d+'\',\'Nomor disalin\')">Salin</button></div></div>'}).join('')}).join('');
+function openContact(){cm();$('cpage').className='page o'}
+function closeContact(){$('cpage').className='page'}
+load();drawStars();render();status();tick();setInterval(tick,1000);spy();
+</script>
+</body>
+</html>
